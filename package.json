@@ -1,32 +1,26 @@
 {
-  "name": "mqtt-express-node",
+  "name": "mqtt-express-node-tiburillo",
   "version": "1.0.0",
-  "description": "MQTT client served by Node with Express",
+  "description": "mqtt in express node",
   "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/junreycloudstrife/mqtt-express-node.git"
+    "url": "git+https://github.com/TibsGracia/mqtt-express-node-tiburillo.git"
   },
-  "keywords": [
-    "mqtt",
-    "node",
-    "express"
-  ],
-  "author": "Jun Rey Ansing",
+  "author": "Mary Grace C. Tiburillo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/junreycloudstrife/mqtt-express-node/issues"
+    "url": "https://github.com/TibsGracia/mqtt-express-node-tiburillo/issues"
   },
-  "homepage": "https://github.com/junreycloudstrife/mqtt-express-node#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mqtt": "^3.0.0"
-  },
+  "homepage": "https://github.com/TibsGracia/mqtt-express-node-tiburillo#readme",
   "engines": {
-    "node": "10.16"
+    "node": "10.15"
   }
 }
