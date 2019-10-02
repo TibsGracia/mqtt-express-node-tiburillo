@@ -1,0 +1,108 @@
+body {
+	background-color: #000;
+}
+html,
+body {
+	height: 100%;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.imagebg {
+	background-image: url("images/avenue-2215317_1920.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	-webkit-filter: blur(3px);
+  filter: blur(3px);
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+
+  .column {
+	float: left;
+	width: 33.33%;
+	margin: auto;
+	padding: 10px;
+  }
+
+.form-container {
+	height: 400px;
+	margin:auto;
+	border-radius: 25px;
+	margin-top:50px;
+	margin-bottom: 50px;
+	padding: 30px;
+	background-color: #fff;
+	position: relative;
+	box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+}
+
+.table  {
+	width: 80%;
+	margin:auto;
+	border-radius: 25px;
+	padding: 30px;
+	background-color: #fff;
+	position: relative;
+	box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+}
+
+td, th {
+    width: 4%;
+    text-align: center;
+}
+
+h3, h1, h2 {
+  text-align: center;
+}
+h1{
+	color: white;
+}
+
+h3 {
+    font-family: cursive
+}
+
+label {
+    font-size: 20px
+}
+
+h1 {
+    background-color: rgba(45, 213, 255, 0.671);
+    padding: 10px;
+	font-family: fantasy;
+	position: relative;
+	margin-top: 20px;
+}
+
+input , textarea, button
+{
+  width: 100%;
+} 
+
+#close1, #close2{
+	width: 10%;
+	float: right;
+}
+a {
+	margin-top: 5px;
+	float: right;
+}
+.modal-content{
+	border-radius: 25px;
+	padding:20px 20px 10px 20px ;
+}
+thead{
+	background-color: #85d7f2;
+}

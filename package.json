@@ -1,0 +1,32 @@
+{
+  "name": "mqtt-express-node",
+  "version": "1.0.0",
+  "description": "MQTT client served by Node with Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junreycloudstrife/mqtt-express-node.git"
+  },
+  "keywords": [
+    "mqtt",
+    "node",
+    "express"
+  ],
+  "author": "Jun Rey Ansing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/junreycloudstrife/mqtt-express-node/issues"
+  },
+  "homepage": "https://github.com/junreycloudstrife/mqtt-express-node#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mqtt": "^3.0.0"
+  },
+  "engines": {
+    "node": "10.16"
+  }
+}
