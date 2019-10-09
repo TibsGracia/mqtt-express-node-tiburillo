@@ -1,70 +1,59 @@
 // basic functionalities
 
-var subTopic;
-function error() {
-  Swal.fire({
-    type: 'error',
-    title: 'Oops...<br>INPUT IS REQUIRED!',
-  });
-}
+
 $(document).ready(function () {
-  $("#btnConnect").click(function (e) {
-    var address = $("#address").val();
-    e.preventDefault();
-    $('#status').val("Connecting...").css("color", "black");
-    client = mqtt.connect(address)//broker address
+  var topic = "tiburillo/device/status";
 
-    client.on("connect", function () {
-      $('#status').val("Successfully Connected!").css("color", "green");
-    });
+  client = mqtt.connect("wss://test.mosquitto.org:8081/mqtt")//broker address
 
-    client.on("message", function (topic, payload) {
-      $("#tblMessage tbody").prepend("<tr>" +
-        "<td>" + topic + "</td>" +
-        "<td>" + payload + "</td>" +
-        "<td>" + moment().format('MMMM Do YYYY, h:mm:ss a') + "</td>");
-    });
-
-    $("#btnPublish").click(function () {
-      var topic = $("#topic").val();
-      if (topic == "") {
-        error();
-      } else {
-        $("#tblPublish tbody").prepend("<tr>" +
-          "<td>" + topic + "</td>" +
-          "<td>" + $('#payload').val() + "</td>" +
-          "<td>" + moment().format('MMMM Do YYYY, h:mm:ss a') + "</td>");
-          client.publish($('#topic').val(), $('#payload').val());
-      }
-      $("#payload").val("");
-    });
-
-    $("#btnSubscribe").click(function () {
-      var sub = $("#Stopic").val();
-      if (sub == "") {
-        error();
-      } else {
-        subTopic = $('#Stopic').val();
-        client.subscribe(subTopic);
-        $("#tblSubscribe tbody").prepend("<tr>" +
-          "<td>" + subTopic + "</td>" +
-          "<td>" + moment().format('MMMM Do YYYY, h:mm:ss a') + "</td>");
-          sub="";
-      }
-    });
-
-    $("#btnDConnect").click(function (e) {
-      e.preventDefault();
-      $('#status').val("You are disconnected!").css("color", "red");
-      client.end();
-    });
-
-    $("#btnUnsubscribe").click(function (er) {
-      client.unsubscribe(subTopic)
-      $("#Stopic").val("");
-    });
+  client.on("connect", function () {
+    console.log('connected')
   });
+  client.subscribe(topic);
+
+  $("#btnOn").click(function () {
+    $(this).css('disabled', 'true')
+    $('#btnOff').css('disabled', 'false')
+    $('#status').val("The device is currently turned on!").css("color", "green");
+    client.publish(topic, "Turned On: "+ moment().format('MMMM Do YYYY, h:mm:ss a'));
+  })
+
+  $("#btnOff").click(function () {
+    $(this).css('disabled', 'false')
+    $('#btnOff').css('disabled', 'true')
+    $('#status').val("The device is currently turned off!").css("color", "red");
+    client.publish(topic, "Turned Off: "+ moment().format('MMMM Do YYYY, h:mm:ss a'));
+  })
 })
+
+    // $("#btnPublish").click(function () {
+    //   var topic = $("#topic").val();
+    //   if (topic == "") {
+    //     error();
+    //   } else {
+    //     $("#tblPublish tbody").prepend("<tr>" +
+    //       "<td>" + topic + "</td>" +
+    //       "<td>" + $('#payload').val() + "</td>" +
+    //       "<td>" + moment().format('MMMM Do YYYY, h:mm:ss a') + "</td>");
+    //       client.publish($('#topic').val(), $('#payload').val());
+    //   }
+    //   $("#payload").val("");
+    // });
+
+
+
+    // $("#btnDConnect").click(function (e) {
+    //   e.preventDefault();
+    //   $('#status').val("You are disconnected!").css("color", "red");
+    //   client.end();
+    // });
+
+    // $("#btnUnsubscribe").click(function (er) {
+    //   client.unsubscribe(subTopic)
+    //   $("#Stopic").val("");
+    // });
+
+
 
 
 // // advance functionalities
